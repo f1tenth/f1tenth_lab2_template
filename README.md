@@ -1,1 +1,1 @@
-# f1tenth_lab1_template
+# Lab 1: Running the Simulation in Docker
