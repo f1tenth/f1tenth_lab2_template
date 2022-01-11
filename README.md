@@ -1,4 +1,4 @@
-# Lab 1: Automatic Emergency Braking
+# Lab 2: Automatic Emergency Braking
 
 ## I. Learning Goals
 
