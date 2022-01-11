@@ -29,13 +29,34 @@ Both the simulator node and the car itself publish [Odometry](http://docs.ros.or
 ### The TTC Calculation
 
 Time to Collision (TTC) is the time it would take for the car to collide with an obstacle if it maintained its current heading and velocity. Between the car and its obstacle, we can calculate it as:
-<img src="https://render.githubusercontent.com/render/math?math=TTC = \frac{r}{[-\dot{r}]_+} ">
 
+![TTC=\frac{r}{[-\dot{r}]_+}](https://latex.codecogs.com/svg.latex?TTC=\frac{r}{[-\dot{r}]_+}) 
+
+where ![r](https://latex.codecogs.com/svg.latex?r) 
+is the distance between the two objects and 
+![\dot{r}](https://latex.codecogs.com/svg.latex?\dot{r}) is the time derivative of that distance. 
+![\dot{r}](https://latex.codecogs.com/svg.latex?\dot{r}) is computed by projecting the relative velocity of the car onto the distance vector between the two objects. The operator 
+![[]_+](https://latex.codecogs.com/svg.latex?[]_+) is defined as: 
+![[x]_+:=max(x,0)](https://latex.codecogs.com/svg.latex?[x]_+:=max(x,0))
+.
+
+You’ll need to calculate the TTC for each beam in the laser scan. Projecting the velocity of the car onto each distance vector is very simple if you know the angle between the cars velocity vector and the distance vector (which can be determined easily from information in the `LaserScan` message).
 
 ## III. Automatic Emergency Braking with TTC
 
+For this lab, you will make a Safety Node that should halt the car before it collides with obstacles.
+To do this, you will make a ROS node that subscribes to the LaserScan and Odometry messages.
+It should analyze the `LaserScan` data and, if necessary, publish an `AckermannDriveStamped` with the velocity field set to 0.0 m/s.
+
+Note the following topic names for your publishers and subscribers (also detailed in the skeleton
+code):
+
+- LaserScan: /scan
+- Odometry: /odom
+- Drive: /drive
+
 ## IV: Deliverables and Submission
-In addition to the three deliverables described in this document, fill in the answers to the questions listed in **`SUBMISSION.md`**.
+You can implement this node in either C++ or Python. Please follow the submission instructions in **`SUBMISSION.md`**.
 
 We'll be using Github classroom throughout the semester to manage submissions for lab assignments. After you're finished, directly commit and push to the repo Github classroom created for you.
 
