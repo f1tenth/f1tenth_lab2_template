@@ -53,7 +53,7 @@ code):
 
 - LaserScan: /scan
 - Odometry: /odom
-- Drive: /drive
+- Drive: /ego_racecar/drive (simulator) /vesc/drive (actual car)
 
 ## IV: Deliverables and Submission
 You can implement this node in either C++ or Python. Please follow the submission instructions in **`SUBMISSION.md`**.
