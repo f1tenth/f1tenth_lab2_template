@@ -47,8 +47,8 @@ To test your node, you can launch the sim container with `kb_teleop` set to `Tru
 Note the following topic names for your publishers and subscribers:
 
 - `LaserScan`: /scan
-- `Odometry`: /odom, specifically, the longitudinal velocity of the vehicle can be found in `twist.twist.linear.x`
-- `AckermannDriveStamped`: /ego_racecar/drive
+- `Odometry`: /ego_racecar/odom, specifically, the longitudinal velocity of the vehicle can be found in `twist.twist.linear.x`
+- `AckermannDriveStamped`: /drive
 
 ## V: Deliverables and Submission
 You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. Develop **directly in the simulation container** provided. Put your package in `/sim_ws/src` alongside the simulation package.
