@@ -62,7 +62,7 @@ Or if you're using `docker-compose`, add an extra line `- <path_to_your_package_
 
 Note that if you're using Windows, make sure your files have Unix style line endings. You can use `dos2unix` or have correct settings in your text editor.
 
-**Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Github classroom created for you.
+**Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Github classroom created for you. Your commited code should start and run in simulation smoothly.
 
 **Deliverable 2**: Make a screen cast of running your safety node in the simulation. Drive the car with keyboard teleop along the hallways of Levine, showing it doesn't brake when travelling straight in the hallway. You need to show that your safe node doesn't generate false positives. i.e. The car doesn't suddenly stop while travelling down the hallway. Then show the car driving towards a wall and braking correctly. Upload your video to YouTube (unlisted) and include a link to the video in **`SUBMISSION.md`**.
 
