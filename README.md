@@ -30,10 +30,10 @@ Time to Collision (TTC) is the time it would take for the car to collide with an
 
 As discussed in the lecture, we can calculate the iTTC as:
 
-$$ iTTC=\frac{r}{[- \dot{r}]_{+}} $$
+$$ iTTC=\frac{r}{\lbrace- \dot{r}\rbrace_{+}} $$
 
 where $r$ is the instantaneous range measurements, and $\dot{r}$ is the current range rate for that measurement.
-And the operator $[ ]_{+}$ is defined as $[ x ]_{%2B} = \text{max}( x, 0 )$.
+And the operator $\lbrace \rbrace_{+}$ is defined as $\lbrace x\rbrace_{+} = \text{max}( x, 0 )$.
 The instantaneous range $r$ to an obstacle is easily obtained by using the current measurements from the `LaserScan` message. Since the LiDAR effectively measures the distance from the sensor to some obstacle.
 The range rate $\dot{r}$ is the expected rate of change along each scan beam. A positive range rate means the range measurement is expanding, and a negative one means the range measurement is shrinking.
 Thus, it can be calculated in two different ways.
