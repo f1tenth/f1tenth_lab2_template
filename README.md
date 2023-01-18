@@ -30,11 +30,17 @@ Time to Collision (TTC) is the time it would take for the car to collide with an
 
 As discussed in the lecture, we can calculate the iTTC as:
 
-<!-- , and the operator <img src="https://render.githubusercontent.com/render/math?math=[]_{%2B}" height="22"> is defined as: <img src="https://render.githubusercontent.com/render/math?math=[x]_{%2B}=\text{max}(x,%200)" height="22"> -->
+$$ iTTC=\frac{r}{[- \dot{r}]_{+}} $$
 
-<img src="https://render.githubusercontent.com/render/math?math=iTTC=\frac{r}{[- \dot{r}]_{%2B}}" height="50">
-
-where <img src="https://render.githubusercontent.com/render/math?math=r" height="10"> is the instantaneous range measurements, and <img src="https://render.githubusercontent.com/render/math?math=\dot{r}" height="18"> is the current range rates, And the operator <img src="https://render.githubusercontent.com/render/math?math=[ ]_{%2B}" height="18"> is defined as <img src="https://render.githubusercontent.com/render/math?math=[ x ]_{%2B} = \text{max}( x, 0 )" height="18">. The instantaneous range <img src="https://render.githubusercontent.com/render/math?math=r" height="10"> to an obstacle is easily obtained by using the current measurements from the `LaserScan` message. The range rate <img src="https://render.githubusercontent.com/render/math?math=\dot{r}" height="18"> is the expected rate of change along each scan beam. Thus, it can be calculated by mapping the vehicle's current longitudinal velocity onto each scan beam's angle by using <img src="https://render.githubusercontent.com/render/math?math=v_x \cos{\theta_{i}}" height="18">. The angles could also be determined by the information in `LaserScan` messages. The range rate could also be interpreted as how much the range measurement will change if the vehicle keeps the current velocity and the obstacle remains stationary. Note the negation in the calculation this is to correctly interpret whether the range measurement should be decreasing or increasing. For a vehicle travelling forward towards an obstacle, the corresponding range rate should be negative since the range measurement should be shrinking. Vice versa, the range rate corresponding to the vehicle travelling away from an obstacle should be positive since the range measurement should be increasing. The operator is in place so the iTTC calculation will be meaningful. When the range rate is positive, the operator will make sure iTTC for that angle goes to infinity.
+where $r$ is the instantaneous range measurements, and $\dot{r}$ is the current range rate for that measurement.
+And the operator $[ ]_{+}$ is defined as $[ x ]_{%2B} = \text{max}( x, 0 )$.
+The instantaneous range $r$ to an obstacle is easily obtained by using the current measurements from the `LaserScan` message. Since the LiDAR effectively measures the distance from the sensor to some obstacle.
+The range rate $\dot{r}$ is the expected rate of change along each scan beam. A positive range rate means the range measurement is expanding, and a negative one means the range measurement is shrinking.
+Thus, it can be calculated in two different ways.
+First, it can be calculated by mapping the vehicle's current longitudinal velocity onto each scan beam's angle by using $v_x \cos{\theta_{i}}$. Be careful with assigning the range rate a positive or a negative value.
+The angles could also be determined by the information in `LaserScan` messages. The range rate could also be interpreted as how much the range measurement will change if the vehicle keeps the current velocity and the obstacle remains stationary.
+Second, you can take the difference between the previous range measurement and the current one, divide it by how much time has passed in between (timestamps are available in message headers), and calculate the range rate that way.
+Note the negation in the calculation this is to correctly interpret whether the range measurement should be decreasing or increasing. For a vehicle travelling forward towards an obstacle, the corresponding range rate for the beam right in front of the vehicle should be negative since the range measurement should be shrinking. Vice versa, the range rate corresponding to the vehicle travelling away from an obstacle should be positive since the range measurement should be increasing. The operator is in place so the iTTC calculation will be meaningful. When the range rate is positive, the operator will make sure iTTC for that angle goes to infinity.
 
 After your calculations, you should end up with an array of iTTCs that correspond to each angle. When a time to collision drops below a certain threshold, it means a collision is imminent.
 
@@ -51,7 +57,7 @@ Note the following topic names for your publishers and subscribers:
 - `AckermannDriveStamped`: /drive
 
 ## V: Deliverables and Submission
-You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. Develop **directly in the simulation container** provided. Put your package in `/sim_ws/src` alongside the simulation package.
+You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. If you're using docker, develop **directly in the simulation container** provided, and put your package in `/sim_ws/src` alongside the simulation package.
 When following the instruction in the simulation repo, the repo directory will be mounted to the sim container. You can also add extra volumes mounted for your convenience when editing the files. For example, if you're using the `rocker` tool:
 
 ```bash
