@@ -168,6 +168,11 @@ package directory with your `safety_node` package and directly commit
 and push to the repo Github classroom created for you. Your commited
 code should start and run in simulation smoothly.
 
+*xxx-ct: Breanna, _update_ is unclear, please explain what it means to
+update and run the submission. Again, the exact commands would be most
+helpful*
+
+
 **Deliverable 2**: Make a screen cast of running your safety node in
 the simulation. Drive the car with keyboard teleop along the hallways
 of Levine, showing it doesn't brake when travelling straight in the
