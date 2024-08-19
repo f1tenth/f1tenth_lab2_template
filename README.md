@@ -1,12 +1,12 @@
 # Lab 2: Automatic Emergency Braking
 
-## I. Learning Goals
+## 1. Learning Goals
 
 - Using the `LaserScan` message in ROS 2
 - Instantaneous Time to Collision (iTTC)
 - Safety critical systems
 
-## II. Overview
+## 2. Overview
 
 The goal of this lab is to develop a safety node for the race cars
 that will stop the car from collision when travelling at higher
@@ -46,7 +46,7 @@ throughout the course to send driving commands to the simulator and
 the car. In the simulator, you can stop the car by sending an
 `AckermannDriveStamped` message with the `speed` field set to 0.0. 
 
-## III. The TTC Calculation
+## 3. The TTC Calculation
 
 Time to Collision (TTC) is the time it would take for the car to
 collide with an obstacle if it maintained its current heading and
@@ -98,7 +98,7 @@ After your calculations, you should end up with an array of iTTCs that
 correspond to each angle. When a time to collision drops below a
 certain threshold, it means a collision is imminent. 
 
-## IV. Automatic Emergency Braking with iTTC
+## 4. Automatic Emergency Braking with iTTC
 
 For this lab, you will make a Safety Node that should halt the car
 before it collides with obstacles. To do this, you will make a ROS 2
@@ -121,11 +121,15 @@ tool for the simulation and drive the vehicle towards a wall.
 
 Note the following topic names for your publishers and subscribers:
 
+*xxx-ct Breanna, the Odometry entry in the list below seems*
+*suspicious. Should that be "`Odometry`: /ego_racecar, /odom"?*
+*please correct it.*
+
 - `LaserScan`: /scan
 - `Odometry`: /ego_racecar/odom, specifically, the longitudinal velocity of the vehicle can be found in `twist.twist.linear.x`
 - `AckermannDriveStamped`: /drive
 
-## V: Deliverables and Submission
+## 5. Deliverables and Submission
 You can implement this node in either C++ or Python. A skeleton
 package is already provided in the repo that you can use. If you're
 using docker, develop **directly in the simulation container**
@@ -162,7 +166,7 @@ the hallway. Then show the car driving towards a wall and braking
 correctly. Upload your video to YouTube (unlisted) and include a link
 to the video in **`SUBMISSION.md`**. 
 
-## VI: Grading Rubric
+## 6. Grading Rubric
 - Compilation: **30** Points
 - Provided Video: **20** Points
 - Correctly stops before collision: **30** Points
