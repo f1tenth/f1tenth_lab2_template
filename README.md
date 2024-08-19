@@ -148,6 +148,7 @@ package in `/sim_ws/src` alongside the simulation package. To do so,
 edit `docker-compose.yml` in the `f1tenth_gym_ros` container.
 
 ```yaml
+# sim_ws/src/f1tenth_gym_ros/docker-compose.yml
 <<< SNIP >>>
     build: ./
     volumes:
