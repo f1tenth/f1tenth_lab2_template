@@ -150,8 +150,8 @@ edit `docker-compose.yml` in the `f1tenth_gym_ros` container.
 ```yaml
 <<< SNIP >>>
     build: ./
-	volumes:
-	  - .:/sim_ws/src/f1tenth_gym_ros                             # this should have been modified already
+    volumes:
+      - .:/sim_ws/src/f1tenth_gym_ros                             # this should have been modified already
       - <abspath>/sim_ws/src/safety_node:/sim_ws/src/safety_node  # Add this line
     environment:
 <<< SNIP >>>
