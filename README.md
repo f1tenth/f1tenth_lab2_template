@@ -57,16 +57,7 @@ Note the following topic names for your publishers and subscribers:
 - `AckermannDriveStamped`: /drive
 
 ## V: Deliverables and Submission
-You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. If you're using docker, develop **directly in the simulation container** provided, and put your package in `/sim_ws/src` alongside the simulation package.
-When following the instruction in the simulation repo, the repo directory will be mounted to the sim container. You can also add extra volumes mounted for your convenience when editing the files. For example, if you're using the `rocker` tool:
-
-```bash
-rocker --nvidia --x11 --volume .:/sim_ws/src/f1tenth_gym_ros --volume <path_to_your_package_on_host>:/sim_ws/src/safety_node -- f1tenth_gym_ros
-```
-
-Or if you're using `docker-compose`, add an extra line `- <path_to_your_package_on_host>:/sim_ws/src/safety_node` to your `volumes` field for the `sim` container.
-
-Note that if you're using Windows, make sure your files have Unix style line endings. You can use `dos2unix` or have correct settings in your text editor.
+You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. 
 
 **Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Github classroom created for you. Your commited code should start and run in simulation smoothly, this includes building as a package with any dependencies included as part of the ``package.xml``
 
