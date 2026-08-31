@@ -61,9 +61,29 @@ Note the following topic names for your publishers and subscribers:
 ## V: Deliverables and Submission
 You can implement this node in either C++ or Python. A skeleton package is already provided in the repo that you can use. 
 
-**Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Github classroom created for you. Your commited code should start and run in simulation smoothly, this includes building as a package with any dependencies included as part of the ``package.xml``
+**Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Classroom 50 created for you. Your commited code should start and run in simulation smoothly, this includes building as a package with any dependencies included as part of the ``package.xml``
 
 **Deliverable 2**: Make a screen cast of running your safety node in the simulation. Drive the car with keyboard teleop along the hallways of Levine, showing it doesn't brake when travelling straight in the hallway. You need to show that your safe node doesn't generate false positives. i.e. The car doesn't suddenly stop while travelling down the hallway. Then show the car driving towards a wall and braking correctly. Upload your video to YouTube (unlisted) and include a link to the video in **`SUBMISSION.md`**.
+
+### Submitting
+
+We'll be using Classroom 50 throughout the semester to manage submissions for lab assignments. You can commit and push your work as often as you need, but a plain push does **not** count as a submission. When you're ready to submit, push a tag named `submission`:
+
+```bash
+git push                            # your commits
+git tag submission
+git push origin submission          # this triggers the autograder
+```
+
+The autograder builds your package and crash-tests your safety node in the simulator, then posts your score as a **Release** on your repo (check the Releases page or the commit's status check a few minutes after you tag). To resubmit, move the tag to a new commit:
+
+```bash
+git tag -f submission
+git push --force origin submission
+```
+The last ``submission`` push before the deadline is counted as your final submission and its grade will be your lab's grade.
+
+**The autograder finds your work by name.** Use the names the deliverables specify: package `safety_node` with a runnable `safety_node` executable, subscribing `/scan` and `/ego_racecar/odom` and publishing `/drive`. Otherwise, the autograder will not be able to grade your work and your submission may get the wrong grade. A tip for passing the driving tests: a `ttc_threshold` around 1 second brakes in time at every tested speed without false-braking in the Levine hallways.
 
 ## VI: Grading Rubric
 - Compilation: **30** Points
