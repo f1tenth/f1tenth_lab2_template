@@ -63,7 +63,7 @@ You can implement this node in either C++ or Python. A skeleton package is alrea
 
 **Deliverable 1**: After you're finished, update the entire skeleton package directory with your `safety_node` package and directly commit and push to the repo Classroom 50 created for you. Your commited code should start and run in simulation smoothly, this includes building as a package with any dependencies included as part of the ``package.xml``
 
-**Deliverable 2**: Make a screen cast of running your safety node in the simulation. Drive the car with keyboard teleop along the hallways of Levine, showing it doesn't brake when travelling straight in the hallway. You need to show that your safe node doesn't generate false positives. i.e. The car doesn't suddenly stop while travelling down the hallway. Then show the car driving towards a wall and braking correctly. Upload your video to YouTube (unlisted) and include a link to the video in **`SUBMISSION.md`**.
+**Deliverable 2**: Make a screen cast of running your safety node in the simulation. Drive the car with keyboard teleop along the hallways of Levine, showing it doesn't brake when travelling straight in the hallway. You need to show that your safe node doesn't generate false positives. i.e. The car doesn't suddenly stop while travelling down the hallway. Then show the car driving towards a wall and braking correctly. Upload your video to YouTube (unlisted) or Google Drive — for Drive, set sharing to **"Anyone with the link can view"** or we cannot grade it — and include the link in **`SUBMISSION.md`**.
 
 ### Submitting
 
@@ -86,8 +86,8 @@ The last ``submission`` push before the deadline is counted as your final submis
 **The autograder finds your work by name.** Use the names the deliverables specify: package `safety_node` with a runnable `safety_node` executable, subscribing `/scan` and `/ego_racecar/odom` and publishing `/drive`. Otherwise, the autograder will not be able to grade your work and your submission may get the wrong grade. A tip for passing the driving tests: a `ttc_threshold` around 1 second brakes in time at every tested speed without false-braking in the Levine hallways.
 
 ## VI: Grading Rubric
-- Compilation: **30** Points
-- Provided Video: **20** Points
-- Correctly stops before collision: **30** Points
-- Correctly calculates TTC: **10** Points
-- Able to navigate through the hallway: **10** Points
+- Compilation: **30** Points (autograded)
+- Provided Video: **20** Points (TA-graded from the link in `SUBMISSION.md`: YouTube unlisted, or Google Drive shared as "Anyone with the link can view")
+- Correctly stops before collision: **30** Points (autograded in simulation)
+- Correctly calculates TTC: **10** Points (autograded in simulation)
+- Able to navigate through the hallway: **10** Points (autograded in simulation)
