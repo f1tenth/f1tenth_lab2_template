@@ -12,7 +12,7 @@ The goal of this lab is to develop a safety node for the race cars that will sto
 
 For different commonly used ROS 2 messages, they are kept mostly the same as in ROS 1. You can use `ros2 interface show <msg_name>` to see the definition of messages. Note for messages that are not installed by default by the distro we use in our container, you'll have to first install it for this to work.
 
-You will be using the [f1tenth_gym_ros](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble) to test your node. Be sure to follow the instructions in the [slides](https://docs.google.com/presentation/d/1ZH0S_Dn8dQs1g3JOH7Dz7HEdvfNYPRSv/edit?usp=sharing&ouid=117915165821576918029&rtpof=true&sd=true) to setup and configure the simulator.
+You will be using the [f1tenth_gym_ros](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-jazzy) to test your node. Be sure to follow the instructions in the [slides](https://docs.google.com/presentation/d/1ZH0S_Dn8dQs1g3JOH7Dz7HEdvfNYPRSv/edit?usp=sharing&ouid=117915165821576918029&rtpof=true&sd=true) to setup and configure the simulator.
 
 #### The `LaserScan` Message
 
