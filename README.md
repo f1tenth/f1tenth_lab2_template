@@ -81,7 +81,7 @@ The autograder builds your package and crash-tests your safety node in the simul
 git tag -f submission
 git push --force origin submission
 ```
-The last ``submission`` push before the deadline is counted as your final submission and its grade will be your lab's grade.
+The best scored ``submission`` push is counted as your final submission and its grade will be your lab's grade.
 
 **The autograder finds your work by name.** Use the names the deliverables specify: package `safety_node` with a runnable `safety_node` executable, subscribing `/scan` and `/ego_racecar/odom` and publishing `/drive`. Otherwise, the autograder will not be able to grade your work and your submission may get the wrong grade. A tip for passing the driving tests: a `ttc_threshold` around 1 second brakes in time at every tested speed without false-braking in the Levine hallways.
 
