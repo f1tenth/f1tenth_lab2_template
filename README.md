@@ -85,6 +85,8 @@ The best scored ``submission`` push is counted as your final submission and its 
 
 **The autograder finds your work by name.** Use the names the deliverables specify: package `safety_node` with a runnable `safety_node` executable, subscribing `/scan` and `/ego_racecar/odom` and publishing `/drive`. Otherwise, the autograder will not be able to grade your work and your submission may get the wrong grade. A tip for passing the driving tests: a `ttc_threshold` around 1 second brakes in time at every tested speed without false-braking in the Levine hallways.
 
+**Only the topics the lab needs.** Your safety node may read `/scan` and `/ego_racecar/odom` and publish on `/drive`, plus topics only your own nodes use. The autograder watches the ROS graph while your code runs: a node that reads anything else the simulator publishes (`/tf`, the lap counter, the collision flag) or publishes on a topic the simulator or the autograder listens to (`/initialpose`, which teleports the car, `/ego_racecar/odom`, the lap counter, ...) gets every line that ran your code scored 0.
+
 ## VI: Grading Rubric
 - Compilation: **30** Points (autograded)
 - Provided Video: **20** Points (TA-graded from the link in `SUBMISSION.md`: YouTube unlisted, or Google Drive shared as "Anyone with the link can view")
